@@ -34,13 +34,8 @@ function photographerTemplate(data) {
 
     return { name, picture, getUserCardDOM };
 }
-function createPhotographerCards(data) {
-    const photographersContainer = document.querySelector(".photographer_section");
 
-    data.photographers.forEach(function (photographerData) {
-        const { getUserCardDOM } = photographerTemplate(photographerData);
-        const photographerCard = getUserCardDOM();
-
-        photographersContainer.appendChild(photographerCard);
-    });
-}
+fetch('data/photographers.json')
+    .then(response => response.json())
+    .then(data => photographerTemplate(data))
+    .catch(error => console.error('Erreur de chargement du fichier JSON :', error));
