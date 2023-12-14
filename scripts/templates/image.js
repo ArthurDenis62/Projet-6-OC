@@ -8,7 +8,7 @@ function displayImageGalery (media, photographer) {
         <p id="likesText">${media.likes} <img src="assets/images/coeur.svg" alt="coeur" /></p>
       </div>
     `;
-    return imageElement;
+    document.querySelector('#photographGallery').appendChild(imageElement);
 }
 
 export default displayImageGalery;

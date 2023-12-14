@@ -14,7 +14,7 @@ function displayVideoGalery (media, photographer) {
             <p id="likesText">${media.likes} <img src="assets/images/coeur.svg" alt="coeur" /></p>
         </div>
     `;
-    return videoElement;
+    document.querySelector('#photographGallery').appendChild(videoElement);
 }
 
 export default displayVideoGalery;

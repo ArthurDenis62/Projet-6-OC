@@ -1,3 +1,5 @@
+import getData from '../utils/function.js'
+
 async function displayData(photographers) {
     const photographersSection = document.querySelector(".photographer_section");
 
@@ -8,12 +10,5 @@ async function displayData(photographers) {
     });
 }
 
-async function getPhotographers() {
-    try {
-        const response = await fetch('data/photographers.json')
-        const data = await response.json()
-        return data;
-    } catch(e) {
-        console.error('Erreur de chargement du fichier JSON :', error)
-    }
-}
+const data = await getData()
+displayData(data.photographers)
