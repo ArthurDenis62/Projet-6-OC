@@ -29,9 +29,4 @@ function photographerTemplate(data) {
     }
 
     return { name, picture, getUserCardDOM };
-}
-
-fetch('data/photographers.json')
-    .then(response => response.json())
-    .then(data => photographerTemplate(data))
-    .catch(error => console.error('Erreur de chargement du fichier JSON :', error));
+};

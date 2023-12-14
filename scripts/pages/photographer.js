@@ -1,5 +1,6 @@
 import mediaFactory from "../utils/mediaFactory.js";
 import getData from "../utils/function.js";
+import Lightbox from "../utils/lightbox.js";
 
 const urlParams = new URLSearchParams(window.location.search);
 const photographerId = urlParams.get('id');
@@ -35,6 +36,7 @@ function orderAndDisplayGallery (order) {
   medias.forEach(elt => {
     mediaFactory(elt, photographer);
   })
+  Lightbox.init();
 }
 document.querySelector("#filter").addEventListener('change', (e) => {
   orderAndDisplayGallery(e.target.value)
