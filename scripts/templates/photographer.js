@@ -18,13 +18,14 @@ function photographerTemplate(data) {
         const h5 = document.createElement('h5');
         h5.textContent = `Price: ${price}`;
 
+        article.appendChild(link)
         link.appendChild(img);
         link.appendChild(h2);
-        link.appendChild(h3);
-        link.appendChild(h4);
-        link.appendChild(h5);
+        article.appendChild(h3);
+        article.appendChild(h4);
+        article.appendChild(h5);
 
-        article.appendChild(link)
+        
         return article;
     }
 

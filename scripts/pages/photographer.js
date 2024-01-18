@@ -1,6 +1,7 @@
 import mediaFactory from "../utils/mediaFactory.js";
 import getData from "../utils/function.js";
 import Lightbox from "../utils/lightbox.js";
+import { displayLikesAndPrice } from "../utils/encarts.js";
 
 const urlParams = new URLSearchParams(window.location.search);
 const photographerId = urlParams.get('id');
@@ -15,6 +16,7 @@ document.querySelector('.photographerImg').src = `assets/images/SamplePhotos/Pho
 document.querySelector('#contact_modal header h2:nth-child(2)').textContent = photographer.name;
 
 medias = [...data.media.filter(p => p.photographerId === parseInt(photographerId))];
+displayLikesAndPrice(medias, photographer.price)
 orderAndDisplayGallery('popularity')
 
 function orderAndDisplayGallery (order) {

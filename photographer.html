@@ -9,7 +9,7 @@
   </head>
   <body>
     <header>
-      <img src="assets/images/logo.png" class="logo" />
+      <a href="./index.html"><img src="assets/images/logo.png" class="logo" /></a>
     </header>
     <main id="main">
       <div class="photograph-header">
@@ -35,6 +35,10 @@
       </div>
       <div class="photograph-gallery" id="photographGallery"></div>
     </main>
+    <div id="encart">
+      <p class="likes"></p>
+      <p class="price"></p>
+    </div>
     <div id="contact_modal">
 			<div class="modal">
 				<header>
@@ -42,7 +46,9 @@
             <h2>Contactez-moi</h2>
             <h2>Données name</h2>
           </div>
-          <img src="assets/icons/close.svg" onclick="closeModal()" />
+          <button class="closeBtn" onclick="closeModal()">
+            <img src="assets/icons/close.svg" />
+          </button>
         </header>
           <form>
             <div>
