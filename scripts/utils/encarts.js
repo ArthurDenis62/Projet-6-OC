@@ -1,6 +1,6 @@
 const displayLikesAndPrice = (medias, price) => {
     document.querySelector(".likes").textContent = totalLikes(medias)
-    document.querySelector(".price").textContent = price
+    document.querySelector(".price").textContent = price + " € /jour"
 }
 
 const totalLikes = (medias) => {
@@ -9,4 +9,4 @@ const totalLikes = (medias) => {
     }, 0)
 }
 
-export {displayLikesAndPrice}
+export {displayLikesAndPrice, totalLikes}

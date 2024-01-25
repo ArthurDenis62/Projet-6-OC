@@ -5,7 +5,7 @@ function displayImageGalery (media, photographer) {
                                   <img src="assets/images/SamplePhotos/${photographer.name.split(' ')[0]}/${media.image}" alt="${media.title}" class="photographImg" />
                                   <div class="details">
                                       <h3>${media.title}</h3>
-                                      <p id="likesText">${media.likes} <img src="assets/images/coeur.svg" alt="coeur" /></p>
+                                      <p class="likesText" tabindex="0"><span class="numberLikes">${media.likes}</span> <img src="assets/images/coeur.svg" alt="coeur" /></p>
                                   </div>
                               </a>`;
     document.querySelector('#photographGallery').appendChild(imageElement);

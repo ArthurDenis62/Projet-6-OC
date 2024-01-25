@@ -7,7 +7,7 @@ function displayVideoGalery (media, photographer) {
                                     </video>
                                     <div class="details">
                                         <h3>${media.title}</h3>
-                                        <p id="likesText">${media.likes} <img src="assets/images/coeur.svg" alt="coeur" /></p>
+                                        <p id="likesText" tabindex="0"><span class="numberLikes">${media.likes}</span> <img src="assets/images/coeur.svg" alt="coeur" /></p>
                                     </div>
                                 </a>`;
     document.querySelector('#photographGallery').appendChild(videoElement);
