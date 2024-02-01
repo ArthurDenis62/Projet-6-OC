@@ -197,11 +197,10 @@ textarea, input {
 }
 
 .photograph-gallery {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-between;
-    margin: 2.5em 100px 0 100px;
-    column-gap: 20em;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+    margin: 0 100px;
 }
 
 .photograph-gallery::after {
@@ -217,7 +216,51 @@ textarea, input {
 }
 
 .photograph {
-    margin-bottom: 3em;
+    width: 350px;
+    text-align: center;
+    display:flex;
+    justify-content:center;
+    margin-bottom: 4em;
+}
+
+.photograph-gallery .photograph a {
+    width: 350px;
+    height: 300px;
+    background-color: lightblue
+    border-radius: 0.4em;
+}
+
+.photograph:nth-child(3n+1){
+    justify-self: start;
+}
+
+.photograph:nth-child(3n+2) {
+    justify-self: center;
+}
+
+.photograph:nth-child(3n){
+    justify-self: end;
+}
+
+@media (max-width: 1280px) {
+    .photograph-gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .photograph:nth-child(3n+1) {
+        justify-self: center;
+    }
+    .photograph:nth-child(3n+2) {
+        justify-self: center;
+    }
+    .photograph:nth-child(3n) {
+        justify-self: center;
+    }
+}
+
+@media (max-width: 740px) {
+    .photograph {
+        grid-template-columns: repeat(1, 1fr);
+    }
 }
 
 .details {
