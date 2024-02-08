@@ -9,7 +9,7 @@
   </head>
   <body>
     <header>
-      <a href="./index.html"><img src="assets/images/logo.png" class="logo" alt="fisheye logo"/></a>
+      <a href="./index.html"><img src="assets/images/logo.png" class="logo" alt="fisheye logo" aria-label="fisheye"/></a>
     </header>
     <main id="main">
       <div class="photograph-header">
@@ -26,11 +26,11 @@
         </div>
       </div>
       <div class="filters">
-        <label for="filter">Trier par</label>
+        <label for="filter" aria-label="trier par">Trier par</label>
         <select id="filter">
-            <option value="popularity">Popularity</option>
-            <option value="date">Date</option>
-            <option value="title">Title</option>
+            <option value="popularity" aria-label="popularité">Popularity</option>
+            <option value="date" aria-label="date">Date</option>
+            <option value="title" aria-label="titre">Title</option>
         </select>
       </div>
       <div class="photograph-gallery" id="photographGallery"></div>

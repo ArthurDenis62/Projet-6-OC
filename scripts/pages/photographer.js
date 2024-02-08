@@ -44,11 +44,10 @@ function orderAndDisplayGallery (order) {
 document.querySelector("#filter").addEventListener('change', (e) => {
   orderAndDisplayGallery(e.target.value)
 });
-
 const likeButtons = Array.from(document.querySelectorAll('.likesText'))
-likeButtons.forEach((btn) => {
-  btn.addEventListener('click', (e) => {
-    const btn = e.target.tagName === 'p' ? e.target : e.target.parentNode
+
+function handleLike (e) {
+  const btn = e.target.tagName === 'p' ? e.target : e.target.parentNode
     e.preventDefault()
     e.stopPropagation()
     btn.classList.toggle('liked')
@@ -61,6 +60,16 @@ likeButtons.forEach((btn) => {
       allLikes--
       document.querySelector('.likes').textContent = allLikes
       likesElt.textContent = parseInt(likesElt.textContent, 10) - 1
+    }
+}
+
+likeButtons.forEach((btn) => {
+  btn.addEventListener('click', (e) => {
+    handleLike(e);
+  })
+  btn.addEventListener('keypress', (e) => {
+    if (e.key === "Enter") {
+      e.target.dispatchEvent(new Event("click"))
     }
   })
 })

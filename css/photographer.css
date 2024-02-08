@@ -216,6 +216,7 @@ textarea, input {
 }
 
 .photograph {
+    position: relative;
     width: 350px;
     text-align: center;
     display:flex;
@@ -225,9 +226,13 @@ textarea, input {
 
 .photograph-gallery .photograph a {
     width: 350px;
-    height: 300px;
-    background-color: lightblue
     border-radius: 0.4em;
+}
+
+.photograph-gallery .photograph p {
+    position: absolute;
+    bottom: 0;
+    right: 0;
 }
 
 .photograph:nth-child(3n+1){
@@ -308,6 +313,7 @@ textarea, input {
     color: #FFFFFF;
     border-radius: 0.4em;
     background-color: #901C1C;
+    padding: 1em;
 }
 
 .lightbox {
