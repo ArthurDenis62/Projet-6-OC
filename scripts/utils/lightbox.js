@@ -163,9 +163,9 @@ class Lightbox {
         const dom = document.createElement('div')
         dom.classList.add('lightbox')
         dom.innerHTML = `<div class="lightbox" id="controles">
-                            <button class="lightbox__close"></button>
-                            <button class="lightbox__prev"></button>
-                            <button class="lightbox__next"></button>
+                            <button class="lightbox__close" aria-label="Fermer"></button>
+                            <button class="lightbox__prev" aria-label="Précédent"></button>
+                            <button class="lightbox__next" aria-label="Suivant"></button>
                             <div class="lightbox__container">
                                 <div class="lightbox__content"></div>
                             </div>

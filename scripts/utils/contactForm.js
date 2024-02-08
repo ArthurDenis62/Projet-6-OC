@@ -1,7 +1,7 @@
 function displayModal() {
     const modal = document.getElementById("contact_modal");
-	modal.style.display = "block";
-    document.getElementById("first").focus()
+	  modal.style.display = "block";
+    document.getElementById("firstName").focus()
 }
 
 function closeModal() {
@@ -34,3 +34,18 @@ document.addEventListener('keydown', function(e) {
     }
   }
 });
+
+function SubmitForm (e) {
+  e.preventDefault()
+  console.log(document.getElementById("firstName").value)
+  console.log(document.getElementById("lastName").value)
+  console.log(document.getElementById("email").value)
+  console.log(document.getElementById("message").value)
+  document.getElementById("firstName").value = ""
+  document.getElementById("lastName").value = ""
+  document.getElementById("email").value = ""
+  document.getElementById("message").value = ""
+  closeModal()
+}
+
+document.querySelector("form").addEventListener("submit", SubmitForm)
