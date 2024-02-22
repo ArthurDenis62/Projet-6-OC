@@ -1,3 +1,4 @@
+// Utilise factory pour créer des modèles pour représenter les informations d'un photographe 
 function photographerTemplate(data) {
     const { name, portrait, city, country, tagline, price, id } = data;
     const picture = `assets/images/SamplePhotos/PhotographersIDPhotos/${portrait}`;

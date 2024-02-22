@@ -1,3 +1,4 @@
+// Affiche dynamiquement la gallery des photographes avec leurs images
 function displayImageGalery (media, photographer) {
     const imageElement = document.createElement('div');
     imageElement.classList.add('photograph');

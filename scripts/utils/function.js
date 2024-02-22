@@ -1,3 +1,4 @@
+// Récupère les données du .json
 async function getData() {
     try {
         const response = await fetch('data/photographers.json')

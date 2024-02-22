@@ -1,3 +1,4 @@
+// Affiche dynamiquement la gallery des photographes avec leurs vidéos
 function displayVideoGalery (media, photographer) {
     const videoElement = document.createElement('div');
     videoElement.classList.add('photograph');

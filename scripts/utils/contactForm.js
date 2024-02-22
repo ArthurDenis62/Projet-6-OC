@@ -1,14 +1,17 @@
+// Ouvre la modal
 function displayModal() {
     const modal = document.getElementById("contact_modal");
 	  modal.style.display = "block";
     document.getElementById("firstName").focus()
 }
 
+// Ferme la modal
 function closeModal() {
     const modal = document.getElementById("contact_modal");
     modal.style.display = "none";
 }
 
+// Gestion de navigation pour l'utilisation clavier
 const modal = document.querySelector('#contact_modal');
 const focusableElements = 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
 const focusableContent = modal.querySelectorAll(focusableElements);
@@ -35,6 +38,8 @@ document.addEventListener('keydown', function(e) {
   }
 });
 
+
+// Appelé dès que le formulaire est soumis
 function SubmitForm (e) {
   e.preventDefault()
   console.log(document.getElementById("firstName").value)

@@ -1,14 +1,13 @@
 import { enableBodyScroll, disableBodyScroll } from '../utils/body-scroll-lock.js'
 
-/** 
-    @property {HTMLElement} element
-    @property {string[]} images
-    @property {string} url
-    @property {Media[]} mediaList
-    @property {Media} currentMedia
-*/
-
+// Classe LightboxFactory pour la création d'instances de Lightbox
+class LightboxFactory {
+    static create(url, mediaList) {
+        return new Lightbox(url, mediaList);
+    }
+}
 class Lightbox {
+    // Méthode statique d'initialisation
     static init () {
         const links = Array.from(document.querySelectorAll('a[href$=".png"], a[href$=".jpg"], a[href$=".jpeg"], a[href$=".mp4"], a[href$=".webm"]'))
         const mediaList = links.map(link => {
@@ -19,16 +18,12 @@ class Lightbox {
         })
         links.forEach(link => link.addEventListener('click', e => {
             e.preventDefault()
-            new Lightbox(e.currentTarget.getAttribute('href'), mediaList)
+            // Utilisation de la Factory pour créer une instance de Lightbox
+            LightboxFactory.create(e.currentTarget.getAttribute('href'), mediaList);
         }))
     }
 
-    /** 
-        @param {string} url
-        @param {string[]} images
-        @param {string} url
-        @param {Media[]} mediaList
-    */
+    // Constructeur de la classe Lightbox
     constructor (url, mediaList) {
         this.currentMedia = mediaList.find(elt => elt.url === url)
         this.element = this.buildDOM(url)
@@ -70,9 +65,7 @@ class Lightbox {
     });
     }
 
-    /** 
-        @param {string} url
-    */
+    // Méthode pour charger une image ou une vidéo
     loadImage (media) {
         this.url = null
         const container = this.element.querySelector('.lightbox__content')
@@ -105,9 +98,7 @@ class Lightbox {
         }
     }
 
-    /**
-        @param {KeyboardEvent} e
-    */
+    // Méthode pour l'utilisation du clavier dans la lightbox
     onKeyUp (e) {
         if (e.key === 'Escape') {
             this.close(e)
@@ -118,9 +109,7 @@ class Lightbox {
         }
     }
 
-    /**
-        @param {MouseEvent|KeyboardEvent} e
-    */
+    // Méthode pour fermer la lightbox
     close (e) {
         e.preventDefault()
         this.element.classList.add('fadeOut')
@@ -131,9 +120,7 @@ class Lightbox {
         document.removeEventListener('keyup', this.onKeyUp)
     }
 
-    /**
-        @param {MouseEvent|KeyboardEvent} e
-    */
+    // Méthode pour passer à l'image ou vidéo suivante
     next (e) {
             e.preventDefault()
             let i = this.mediaList.findIndex(media  => media .url === this.url)
@@ -143,9 +130,7 @@ class Lightbox {
             this.loadImage(this.mediaList[i + 1])
     }
 
-    /**
-        @param {MouseEvent|KeyboardEvent} e
-    */
+    // Méthode pour passer à l'image ou vidéo précédente
     prev (e) {
         e.preventDefault()
         let i = this.mediaList.findIndex(media => media.url === this.url)
@@ -155,10 +140,7 @@ class Lightbox {
         this.loadImage(this.mediaList[i - 1])
     }
 
-    /**
-        @param {string} url
-        @return {HTMLElement}
-    */
+    // Méthode pour construire la structure DOM du lightbox
     buildDOM (url) {
         const dom = document.createElement('div')
         dom.classList.add('lightbox')

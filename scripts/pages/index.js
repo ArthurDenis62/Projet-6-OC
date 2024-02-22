@@ -1,5 +1,6 @@
 import getData from '../utils/function.js'
 
+// Fonction pour l'affichage des photographes
 async function displayData(photographers) {
     const photographersSection = document.querySelector(".photographer_section");
 
